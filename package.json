@@ -2,12 +2,14 @@
   "name": "inventario-obras",
   "version": "1.0.0",
   "description": "Sistema de gestión de inventario para obras de construcción",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
   "scripts": {
-    "install-all": "cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && node src/server.js",
-    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm install && npm run build",
     "dev:frontend": "cd frontend && npm start",
-    "seed": "cd backend && npm run seed"
+    "vercel-build": "cd frontend && npm install && npm run build"
   }
 }

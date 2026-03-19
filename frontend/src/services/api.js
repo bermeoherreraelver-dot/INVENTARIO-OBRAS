@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: process.env.REACT_APP_API_URL || '/api',
 });
 
 api.interceptors.request.use((config) => {
@@ -34,9 +34,9 @@ export const eliminarProducto = (id) => api.delete(`/productos/${id}`);
 // Pedidos
 export const getPedidos = (params) => api.get('/pedidos', { params });
 export const crearPedido = (data) => api.post('/pedidos', data);
-export const completarPedido = (id) => api.patch(`/pedidos/${id}/completar`);
-export const cancelarPedido = (id) => api.patch(`/pedidos/${id}/cancelar`);
-export const getReporteResumen = (params) => api.get('/pedidos/reporte/resumen', { params });
+export const completarPedido = (id) => api.patch(`/pedidos/${id}`, { accion: 'completar' });
+export const cancelarPedido = (id) => api.patch(`/pedidos/${id}`, { accion: 'cancelar' });
+export const getReporteResumen = (params) => api.get('/pedidos/reporte', { params });
 
 // Auth
 export const login = (data) => api.post('/auth/login', data);
